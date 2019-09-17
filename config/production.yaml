@@ -1,0 +1,8 @@
+version: 0.0
+os: linux
+
+database:
+  host: 127.0.0.1
+  port: 3306
+  usename: root
+  password: 1234
