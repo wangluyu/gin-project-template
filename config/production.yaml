@@ -1,9 +1,6 @@
 version: 0.0
 os: linux
 
-app:
-  JwtSecret: 123456
-
 mysql:
   host: 127.0.0.1:3306
   usename: root
