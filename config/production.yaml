@@ -1,8 +1,15 @@
 version: 0.0
 os: linux
 
-database:
-  host: 127.0.0.1
-  port: 3306
+app:
+  JwtSecret: 123456
+
+mysql:
+  host: 127.0.0.1:3306
   usename: root
   password: 1234
+  charset: utf8mb4
+  timeout: 10
+
+reids:
+  host: 127.0.0.1:6379
