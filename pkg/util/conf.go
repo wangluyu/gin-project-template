@@ -14,14 +14,16 @@ type AppConf struct {
 }
 
 type Conf struct {
-	Mysql MysqlConf `yaml:"mysql"`
-	Redis RedisConf `yaml:"redis"`
+	LogPath string    `yaml:"logPath"`
+	Mysql   MysqlConf `yaml:"mysql"`
+	Redis   RedisConf `yaml:"redis"`
 }
 
 type MysqlConf struct {
 	Host     string `yaml:"host"`
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
+	Database string `yaml:"database"`
 	Charset  string `yaml:"charset"`
 	Timeout  int    `yaml:"timeout"`
 }

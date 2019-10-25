@@ -27,10 +27,12 @@ a project template for gin
 
 ## Todo list
 1. ~~配置文件~~ 2019.10.25
-2. 日志
-3. docker部署
-4. swagger文档
-5. jwt
+2. 日志记录到文件
+3. mysql
+4. redis
+5. docker部署
+6. swagger文档
+7. jwt
 
 
 ## 如何使用
@@ -46,4 +48,23 @@ a project template for gin
     conf, err := util.FetchConf()
     mysqlConf := conf.Mysql
     mysqlHost := conf.Mysql.Host // mysqlConf.Host
+    ```
+
+#### 日志记录到文件
+- 在`config`指定`logPath`的值，`logPath`的值为日志目录
+- info日志文件名称形如20191025.log，error日志文件名称形如20191025.log.wf
+- 记录日志
+    ```$golang
+    // 记录info日志
+    log.Info["hello"] = "world"
+    log.Info["great"] = "wall"
+    // 输出日志文本为： time="2019-10-25T18:29:39+08:00" level=info hello=world great=wall
+    
+    // 记录warning日志
+    _ = log.Warn("You should probably take a look at this")
+    // 输出日志文本为： time="2019-10-25T18:28:44+08:00" level=warning msg=You should probably take a look at this
+    
+    // 记录error日志
+    _ = log.Error("Something failed but I'm not quitting.")
+    // 输出日志文本为： time="2019-10-25T18:28:44+08:00" level=error msg=Something failed but I'm not quitting.
     ```

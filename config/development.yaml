@@ -1,10 +1,12 @@
 version: 0.0
 os: linux
 
+logPath: ./log/
 mysql:
   host: 127.0.0.1:3306
   usename: root
   password: 1234
+  database: test
   charset: utf8mb4
   timeout: 10
 
