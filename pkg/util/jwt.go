@@ -14,7 +14,11 @@ type Claims struct {
 }
 
 func NewToken(openId string, sessionKey string) (string, error) {
-	expireTime := time.Now().Add(3 * time.Hour).Unix()
+	conf, err := FetchAppConf()
+	if err != nil {
+		return "", err
+	}
+	expireTime := time.Now().Add(time.Duration(conf.JwtExpire) * time.Hour).Unix()
 
 	claims := Claims{
 		openId,
