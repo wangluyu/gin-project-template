@@ -1,7 +1,7 @@
 package util
 
 import (
-	"gin-project-template/pkg/err"
+	"gin-project-template/pkg/e"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -26,10 +26,15 @@ func (g *Gin) Error(errCode int, data interface{}) {
 	return
 }
 
+func (g *Gin) UnAuth(errCode int, data interface{}) {
+	g.Response(http.StatusUnauthorized, errCode, data)
+	return
+}
+
 func (g *Gin) Response(httpCode, errCode int, data interface{}) {
 	g.C.JSON(httpCode, response{
 		Code: errCode,
-		Msg:  err.GetErrMsg(errCode),
+		Msg:  e.GetErrMsg(errCode),
 		Data: data,
 	})
 	return

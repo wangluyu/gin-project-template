@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/wangluyu/gin-project-template/router"
+	"gin-project-template/router"
 )
 
 func main() {

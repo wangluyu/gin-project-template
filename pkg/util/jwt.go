@@ -8,20 +8,19 @@ import (
 var jwtSecret []byte
 
 type Claims struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+	OpenId     string `json:"open_id"`
+	SessionKey string `json:"session_key"`
 	jwt.StandardClaims
 }
 
-func GenerateToken(username, password string) (string, error) {
-	nowTime := time.Now()
-	expireTime := nowTime.Add(3 * time.Hour)
+func NewToken(openId string, sessionKey string) (string, error) {
+	expireTime := time.Now().Add(3 * time.Hour).Unix()
 
 	claims := Claims{
-		EncodeMD5(username),
-		EncodeMD5(password),
+		openId,
+		sessionKey,
 		jwt.StandardClaims{
-			ExpiresAt: expireTime.Unix(),
+			ExpiresAt: expireTime,
 			Issuer:    "gin-project-template",
 		},
 	}
