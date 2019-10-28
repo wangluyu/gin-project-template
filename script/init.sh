@@ -5,8 +5,8 @@ go get gopkg.in/yaml.v2
 go get -u github.com/go-redis/redis
 go get github.com/sirupsen/logrus
 go get github.com/dgrijalva/jwt-go
-
-dir=/home
-git clone https://github.com/go-swagger/go-swagger "$dir"
-cd "$dir"
-go install ./cmd/swagger
+go get -u github.com/swaggo/swag/cmd/swag
+go get -u github.com/swaggo/gin-swagger
+go get -u github.com/alecthomas/template
+go get -u github.com/swaggo/gin-swagger/swaggerFiles
+swag init
