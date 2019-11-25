@@ -13,8 +13,19 @@ type AppConf struct {
 	JwtExpire   int             `yaml:"jwtExpire"`
 	MailProduct MailProductConf `yaml:"mailProduct"`
 	Mail        MailConf        `yaml:"mail"`
+	Tencent     TencentConf     `yaml:"tencent"`
+	Sms         SmsConf         `yaml:"sms"`
 }
 
+type SmsConf struct {
+	Sign     string `yaml:"sign"`
+	SdkAppid string `yaml:"sdkAppid"`
+}
+
+type TencentConf struct {
+	SecretId  string `yaml:"secretId"`
+	SecretKey string `yaml:"secretKey"`
+}
 type MailConf struct {
 	From     string `yaml:"from"`
 	Host     string `yaml:"host"`

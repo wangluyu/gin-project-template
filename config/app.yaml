@@ -12,3 +12,11 @@ mailProduct:
   link: https://github.com/wangluyu
   logo: http://www.duchess-france.org/wp-content/uploads/2016/01/gopher.png
   copyright: Copyright © 2019 Gin Project Template. All rights reserved.
+
+tencent:
+  secretId: xxx
+  secretKey: xxx
+
+sms:
+  sign: xxx
+  sdkAppid: xxx

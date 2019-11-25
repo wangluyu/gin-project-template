@@ -10,7 +10,7 @@ a project template for gin
 6. ~~swagger文档~~ 2019.10.25
 7. jwt
 8. ~~邮件~~ 2019.11.25
-9. 腾讯云短信
+9. ~~腾讯云短信~~ 2019.11.25
 
 
 ## 如何使用(How To Use)
@@ -35,11 +35,11 @@ a project template for gin
         - host: smtp服务器,根据from定义
         - port: smtp服务器端口
         - password: 发送邮箱的登陆密码
-    mailProduct
+    - mailProduct
         - name: 落款名
         - link: 公司主页
         - logo: 公司logo
-         - copyright: Copyright 显示在邮件最下方
+        - copyright: Copyright 显示在邮件最下方
 - 生成邮件以及发送邮件
     ```$golang
     // mail.Welcome为自定义模版
@@ -51,6 +51,22 @@ a project template for gin
     mail.Send($subject, body, $to)
     ```
 
+#### 发送短信(腾讯云短信服务)
+- 在config/app.yaml配置tencent和sms
+    - tencent
+        - secretId: 用于标识 API 调用者身份
+        - secretKey: 用于验证 API 调用者的身份
+        - 申请安全凭证：
+            - 在 [ 腾讯云管理中心控制台-云API密钥](https://console.cloud.tencent.com/capi) 页面，单击【新建密钥】即可以创建一对密钥。
+    - sms
+        - sign: 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名
+                签名信息可登录[短信控制台](https://console.cloud.tencent.com/sms/smslist)查看。
+        - sdkAppid: 短信SdkAppid在[短信控制台](https://console.cloud.tencent.com/sms/smslist)添加应用后生成的实际SdkAppid,示例如1400006666。
+- 发送短信
+    ```$golang
+    sms.Send($phone, $templateID, $params)
+    ```
+    
 #### 日志记录到文件
 - 在`config`指定`logPath`的值，`logPath`的值为日志目录
 - info日志文件名称形如20191025.log，error日志文件名称形如20191025.log.wf
