@@ -1,2 +1,14 @@
 evn: development
 jwtExpire: 3
+
+mail:
+  from: from
+  host: smtp.gmail.com
+  port: 465
+  password: password
+
+mailProduct:
+  name: Gin Project Template
+  link: https://github.com/wangluyu
+  logo: http://www.duchess-france.org/wp-content/uploads/2016/01/gopher.png
+  copyright: Copyright © 2019 Gin Project Template. All rights reserved.

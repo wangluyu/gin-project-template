@@ -9,8 +9,24 @@ var configFile []byte
 var appConfigFile []byte
 
 type AppConf struct {
-	Evn       string `yaml:"evn"`
-	JwtExpire int    `yaml:"jwtExpire"`
+	Evn         string          `yaml:"evn"`
+	JwtExpire   int             `yaml:"jwtExpire"`
+	MailProduct MailProductConf `yaml:"mailProduct"`
+	Mail        MailConf        `yaml:"mail"`
+}
+
+type MailConf struct {
+	From     string `yaml:"from"`
+	Host     string `yaml:"host"`
+	Port     int    `yaml:"port"`
+	Password string `yaml:"password"`
+}
+
+type MailProductConf struct {
+	Name      string `yaml:"name"`
+	Link      string `yaml:"link"`
+	Logo      string `yaml:"logo"`
+	Copyright string `yaml:"copyright"`
 }
 
 type Conf struct {
