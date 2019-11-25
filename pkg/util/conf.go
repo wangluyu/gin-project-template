@@ -10,11 +10,16 @@ var appConfigFile []byte
 
 type AppConf struct {
 	Evn         string          `yaml:"evn"`
-	JwtExpire   int             `yaml:"jwtExpire"`
+	Jwt         JwtConf         `yaml:"jwt"`
 	MailProduct MailProductConf `yaml:"mailProduct"`
 	Mail        MailConf        `yaml:"mail"`
 	Tencent     TencentConf     `yaml:"tencent"`
 	Sms         SmsConf         `yaml:"sms"`
+}
+
+type JwtConf struct {
+	Expire int    `yaml:"expire"`
+	Issuer string `yaml:"issuer"`
 }
 
 type SmsConf struct {

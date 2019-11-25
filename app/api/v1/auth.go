@@ -7,8 +7,8 @@ import (
 )
 
 type Auth struct {
-	OpenId     string `form:"open_id" json:"open_id" binding:"required"`
-	SessionKey string `form:"session_key" json:"session_key" binding:"required"`
+	ID  string `form:"id" json:"id" binding:"required"`
+	Key string `form:"key" json:"key" binding:"required"`
 }
 
 func Login(c *gin.Context) {
@@ -18,7 +18,7 @@ func Login(c *gin.Context) {
 		app.UnAuth(e.ErrorAuthParams, nil)
 		return
 	}
-	token, err := util.NewToken(auth.OpenId, auth.SessionKey)
+	token, err := util.NewToken(auth.ID, auth.Key)
 	if err != nil {
 		app.Error(e.Error, nil)
 		return

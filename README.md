@@ -8,7 +8,7 @@ a project template for gin
 4. redis
 5. docker部署
 6. ~~swagger文档~~ 2019.10.25
-7. jwt
+7. ~~jwt~~ 2019.11.25
 8. ~~邮件~~ 2019.11.25
 9. ~~腾讯云短信~~ 2019.11.25
 
@@ -66,7 +66,14 @@ a project template for gin
     ```$golang
     sms.Send($phone, $templateID, $params)
     ```
-    
+
+#### JWT
+- 在config/app.yaml配置jwt
+    - expire: token过期时间 单位为小时
+    - issuer: 字符串
+- 生成token方法详见app/api/v1/auth.go
+- 使用方法详见router
+
 #### 日志记录到文件
 - 在`config`指定`logPath`的值，`logPath`的值为日志目录
 - info日志文件名称形如20191025.log，error日志文件名称形如20191025.log.wf

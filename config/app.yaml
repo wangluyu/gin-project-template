@@ -1,5 +1,7 @@
 evn: development
-jwtExpire: 3
+jwt:
+  expire: 3
+  issuer: "gin-project-template"
 
 mail:
   from: from

@@ -8,24 +8,25 @@ import (
 var jwtSecret []byte
 
 type Claims struct {
-	OpenId     string `json:"open_id"`
-	SessionKey string `json:"session_key"`
+	ID  string `json:"id"`
+	Key string `json:"key"`
 	jwt.StandardClaims
 }
 
-func NewToken(openId string, sessionKey string) (string, error) {
+func NewToken(id string, key string) (string, error) {
 	conf, err := FetchAppConf()
 	if err != nil {
 		return "", err
 	}
-	expireTime := time.Now().Add(time.Duration(conf.JwtExpire) * time.Hour).Unix()
+	jwtConf := conf.Jwt
+	expireTime := time.Now().Add(time.Duration(jwtConf.Expire) * time.Hour).Unix()
 
 	claims := Claims{
-		openId,
-		sessionKey,
+		id,
+		key,
 		jwt.StandardClaims{
 			ExpiresAt: expireTime,
-			Issuer:    "gin-project-template",
+			Issuer:    jwtConf.Issuer,
 		},
 	}
 
